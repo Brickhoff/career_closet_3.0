@@ -7,7 +7,7 @@ class SuitsController < ApplicationController
     # GET /suits.json
     def index
         @q_suits = Suit.ransack(params[:q])
-        @suits = @q_suits.result().paginate(page: params[:page])
+        @suits = @q_suits.result().search(params[:search]).search1(params[:search1]).search2(params[:search2]).paginate(page: params[:page])
     end
     
     

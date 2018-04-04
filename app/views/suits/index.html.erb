@@ -5,6 +5,22 @@
     <%= link_to "Add new suits", new_suit_path %>
 </p>
 
+<%= form_tag suits_path, :method => 'get', :id => "suits_search" do %>
+  <p>
+    <p>Gender</p>
+    <%= text_field_tag :search, params[:search] %>
+    <p>Size</p>
+    <%= text_field_tag :search1, params[:search1] %>
+    <p>Status</p>
+    <%= text_field_tag :search2, params[:search2] %>
+    <%= submit_tag "Search", :gender => nil %>
+    <%= link_to "Reset", suits_path %>
+  </p>
+<% end %>
+
+
+
+
 <% search_form_for @q_suits do |f| %>
     <%= f.label :appid %>
     <%= f.search_field :appid_cont %><br>
